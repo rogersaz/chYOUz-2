@@ -1,12 +1,5 @@
-import { Link, MetaFunction } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
-
-export const meta: MetaFunction = () => {
-  return {
-    title: "About chYOUz - Personalized Songs for Your Moments",
-    description: "Learn about chYOUz and how we create personalized songs for your moments and memories.",
-  };
-};
 
 export default function Index() {
   const user = useOptionalUser();
@@ -36,7 +29,7 @@ export default function Index() {
                 {user ? (
                   <Link
                     to="/notes"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-600 sm:px-8 font-montserrat"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
                   >
                     View Notes for {user.email}
                   </Link>
@@ -44,7 +37,7 @@ export default function Index() {
                   <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-5 sm:gap-5">
                     <Link
                       to="/slideshow-order"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-600 sm:px-8 font-montserrat"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
                     >
                       Order
                     </Link>
