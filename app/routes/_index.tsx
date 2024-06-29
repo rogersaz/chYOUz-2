@@ -1,5 +1,12 @@
-import { Link } from "@remix-run/react";
+import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "chYOUz - Personalized Songs for Your Moments",
+    description: "Create personalized songs for your moments and memories with chYOUz. Perfect for slideshows, special occasions, and more.",
+  };
+};
 
 export default function Index() {
   const user = useOptionalUser();
