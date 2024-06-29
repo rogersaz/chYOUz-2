@@ -1,22 +1,23 @@
+// remix.config.js
+import { config as netlifyConfig } from "@netlify/remix-adapter";
+
 /** @type {import('@remix-run/dev').AppConfig} */
-const config = {
-  // Specify dependencies to bundle on the server
-  serverDependenciesToBundle: [/^(?!react-hook-form).*$/],
-
-  // Default configurations
-  appDirectory: "app",
-  assetsBuildDirectory: "public/build",
-  serverBuildPath: "build/index.js",
-  publicPath: "/build/",
-
-  // Add other configurations here as needed
-  ignoredRouteFiles: ["**/.*"],
-  serverModuleFormat: "cjs", // CommonJS format for server
+const remixConfig = {
+  ...(process.env.NODE_ENV === "production" ? netlifyConfig : undefined),
   future: {
-    v2_routeConvention: true,
+    v2_meta: true, // Enable future Remix features if needed
+  },
+  webpack: (config) => {
+    // Add a loader for .html files
+    config.module.rules.push({
+      test: /\.html$/,
+      type: "asset/source", // Use the appropriate type for handling HTML files
+    });
+    return config;
   },
 };
 
-export default config;
+export default remixConfig;
+
 
 
