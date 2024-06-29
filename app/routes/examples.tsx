@@ -2,10 +2,10 @@ import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "chYOUz Examples - Personalized Songs for Your Slideshows",
-    description: "Explore examples of personalized songs created by chYOUz for custom slideshows and special occasions.",
-  };
+  return [
+    { title: "chYOUz Examples - Personalized Songs for Your Slideshows" },
+    { name: "description", content: "Explore examples of personalized songs created by chYOUz for custom slideshows and special occasions." }
+  ];
 };
 
 export default function Index() {
