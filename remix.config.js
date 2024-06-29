@@ -1,5 +1,5 @@
 /** @type {import('@remix-run/dev').AppConfig} */
-module.exports = {
+const config = {
   // Specify dependencies to bundle on the server
   serverDependenciesToBundle: [/^(?!react-hook-form).*$/],
 
@@ -16,4 +16,7 @@ module.exports = {
     v2_routeConvention: true,
   },
 };
+
+export default config;
+
 
