@@ -1,8 +1,45 @@
-import { Link } from "@remix-run/react";
+import { useState } from "react";
+import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 
-export default function Index() {
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Contact Us - chYOUz" },
+    { name: "description", content: "Get in touch with us through our contact form." },
+  ];
+};
+
+export default function Contact() {
   const user = useOptionalUser();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    question: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/.netlify/functions/send-email", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      alert("Your message has been sent!");
+      setFormData({ name: "", email: "", question: "" });
+    } else {
+      alert("Yikes! The message hit a sour note. Please give it another go! 🎵🚫📩");
+    }
+  };
+
   return (
     <main className="relative min-h-screen bg-orange sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
@@ -22,9 +59,58 @@ export default function Index() {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </h1>
-              <p className="mx-auto -mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
-                Contact info coming soon.
-              </p>
+              <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="question" className="block text-sm font-medium text-gray-700">
+                    Question
+                  </label>
+                  <textarea
+                    name="question"
+                    id="question"
+                    value={formData.question}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
