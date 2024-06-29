@@ -1,5 +1,12 @@
-import { Link } from "@remix-run/react";
+import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "chYOUz Examples - Personalized Songs for Your Slideshows",
+    description: "Explore examples of personalized songs created by chYOUz for custom slideshows and special occasions.",
+  };
+};
 
 export default function Index() {
   const user = useOptionalUser();
@@ -21,49 +28,35 @@ export default function Index() {
                 <span className="text-orange-500 drop-shadow-md">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Example<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
-
-                <div className="mt-10 flex flex-col items-center">
-  {/* <h2 className="text-2xl font-bold text-white mb-4">Sample video and song</h2> */}
-  
-  <div className="relative w-full max-w-xl aspect-video">
-    <iframe
-      className="absolute top-0 left-0 w-full h-full"
-      src="https://www.youtube.com/embed/An_CFJ7x-JE"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-  
-  <p>&nbsp;</p>
-
-  <div className="relative w-full max-w-xl aspect-video">
-    <iframe
-      className="absolute top-0 left-0 w-full h-full"
-      src="https://www.youtube.com/embed/J3X3gSRlpbY"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-  
-  {/* <p className="text-white mt-4 max-w-xl text-center">Example Video</p> */}
-
-</div>
-
-
-
               </h1>
-              {/* <p className="mx-auto -mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
-                Examples coming soon.
-              </p> */}
+              <div className="mt-10 flex flex-col items-center">
+                <div className="relative w-full max-w-xl aspect-video">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/An_CFJ7x-JE"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p>&nbsp;</p>
+                <div className="relative w-full max-w-xl aspect-video">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/J3X3gSRlpbY"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
                     to="/notes"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-green-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-600 sm:px-8 font-montserrat"
                   >
                     View Notes for {user.email}
                   </Link>
@@ -71,7 +64,7 @@ export default function Index() {
                   <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-5 sm:gap-5">
                     <Link
                       to="/slideshow-order"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-green-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-600 sm:px-8 font-montserrat"
                     >
                       Order
                     </Link>
