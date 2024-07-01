@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useForm } from "react-hook-form";
 import 'tailwindcss/tailwind.css';
@@ -190,9 +190,14 @@ export default function SlideshowOrder() {
           >
             Home
           </a>
+          <a 
+            href="https://buy.stripe.com/cN24k1aD61VF3dK288"
+            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+          >
+            BUY NOW
+          </a>
         </div>
       </form>
     </div>
   );
 }
-
