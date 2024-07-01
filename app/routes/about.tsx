@@ -26,9 +26,10 @@ export default function Index() {
             <div className="lg:pb-18 relative px-12 pt-12 pb-8 sm:px-12 sm:pt-24 sm:pb-14 lg:px-16 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold sm:text-8xl lg:text-9xl font-montserrat tracking-normal sm:tracking-tighter">
                 <span className="text-orange-500 drop-shadow-md">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; About<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp; About<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </h1>
+              <p>&nbsp;</p>
               <p className="mx-auto -mt-4 max-w-lg text-left text-xl text-black sm:max-w-3xl font-montserrat">
                 Welcome to <b>chYOUze</b>, where we turn your cherished moments into unforgettable memories through the power of <b>PERSONALIZED</b> songs. Our mission is to create custom digital slideshows that blend your photos with songs <b>UNIQUELY</b> tailored to your story.
               </p>
