@@ -29,47 +29,47 @@ export default function Index() {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; About<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </h1>
-              <p className="mx-auto -mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto -mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 Welcome to <b>chYOUze</b>, where we turn your cherished moments into unforgettable memories through the power of <b>PERSONALIZED</b> songs. Our mission is to create custom digital slideshows that blend your photos with songs <b>UNIQUELY</b> tailored to your story.
               </p>
               <h2 className="text-center text-4xl text-white mt-8 font-montserrat">Our Vision</h2>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 At <b>chYOUz</b>, we believe that every moment, big or small, deserves to be celebrated in a special way. Our vision is to transform your memories into lasting, PERSONALIZED musical keepsakes that you can share with your loved ones.
               </p>
               <h2 className="text-center text-4xl text-white mt-8 font-montserrat">What We Do</h2>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 We specialize in crafting <b>PERSONALIZED</b> songs that capture the essence of your experiences. Whether it is a wedding, birthday, anniversary, memorial, favorite pet, child milestone, or just letting someone know you are thinking about them, chYOUz will create a unique and PERSONALIZED soundtrack that reflects your emotions and memories.
               </p>
               <h2 className="text-center text-4xl text-white mt-8 font-montserrat">How It Works</h2>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 We have a very simple process using the online order link.
               </p>
-              <ul className="list-decimal list-inside mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <ul className="list-decimal list-inside mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 <li><b>chYOUz</b> Your Story: Tell us about the moments you want to commemorate by sharing key words and phrases.</li>
                 <li><b>chYOUz</b> Your Style of Music: Select the genre and voice preference (male or female) for your song.</li>
                 <li><b>chYOUz</b> Your Photos: Upload and send us your favorite photos to include in the slideshow.</li>
                 <li><b>chYOUz</b> will send you a beautifully crafted digital slideshow with your PERSONALIZED song. Download the digital slideshow to keep forever and share with family and friends.</li>
               </ul>
               <h2 className="text-center text-4xl text-white mt-8 font-montserrat">Why Choose Us?</h2>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 Just as our name implies…you have choice. At <b>chYOUz</b>, we tailor to YOU!
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 <b>PERSONALIZED:</b> Every song is custom-made to fit your story and preferences.
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 <b>PROFESSIONAL QUALITY:</b> chYOUz will design your song to share your story and ensure top-notch quality.
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 Easy and Convenient: Our simple process makes it easy for you to create a memorable gift.
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 <b>Get Started</b>
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 Ready to turn your moments into music? Visit our order link to start creating your personalized slideshow today.
               </p>
-              <p className="mx-auto mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
+              <p className="mx-auto mt-4 max-w-lg text-left text-xl text-white sm:max-w-3xl font-montserrat">
                 <b>Celebrate your memories with chYOUz and make them last forever!</b>
               </p>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
