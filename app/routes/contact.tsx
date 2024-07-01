@@ -24,18 +24,23 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/.netlify/functions/send-email", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (response.ok) {
-      alert("Your message has been sent!");
-      setFormData({ name: "", email: "", question: "" });
-    } else {
+      if (response.ok) {
+        alert("Your message has been sent!");
+        setFormData({ name: "", email: "", question: "" });
+      } else {
+        alert("There was an error sending your message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
       alert("There was an error sending your message. Please try again.");
     }
   };
