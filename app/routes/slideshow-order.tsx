@@ -112,7 +112,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Keywords or Phrases for Song</label>
+          <label className="block mb-2">Enter up to 10 keywords or phrases separate by a comma for your custom song</label>
           <input 
             type="text" 
             {...register("keywords", { required: true })} 
@@ -122,7 +122,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Song Genre - Multiple choice are fine</label>
+          <label className="block mb-2">Song Genre - Multiple choice are fine. Hold down your shift key and select.</label>
           <select 
             multiple 
             {...register("genre", { required: true })} 
@@ -155,14 +155,14 @@ export default function SlideshowOrder() {
             className="w-full px-3 py-2 border rounded-md"
             defaultValue="select"
           >
-            <option value="select" disabled>Select Voice</option>
+            <option value="select" disabled>Select a voice type</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Upload Photos - MAX 45MB</label>
+          <label className="block mb-2">Upload Photos from 1 to 24 - MAX 45MB</label>
           <input 
             type="file" 
             onChange={handlePhotoUpload} 
