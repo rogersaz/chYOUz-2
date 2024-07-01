@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import 'tailwindcss/tailwind.css';
 
 const supabaseUrl = 'https://xzlaojqvnvuvywshviso.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODkyMjUzMCwiZXhwIjoyMDM0NDk4NTMwfQ.4a728R5ZXAx3S25lBN80WzKn476NQCOrHXnDKz_xeFM';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSIsInNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODkyMjUzMCwiZXhwIjoyMDM0NDk4NTMwfQ.4a728R5ZXAx3S25lBN80WzKn476NQCOrHXnDKz_xeFM';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function SlideshowOrder() {
@@ -65,7 +65,10 @@ export default function SlideshowOrder() {
   };
 
   const handlePhotoUpload = (event) => {
-    setPhotos([...event.target.files]);
+    const file = event.target.files[0];
+    if (file) {
+      setPhotos([...photos, file]);
+    }
   };
 
   return (
@@ -104,7 +107,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Keywords or Phrases for Song</label>
+          <label className="block mb-2">Enter up to 10 keywords or phrases separate by a comma for your custom song</label>
           <input 
             type="text" 
             {...register("keywords", { required: true })} 
@@ -147,26 +150,34 @@ export default function SlideshowOrder() {
             className="w-full px-3 py-2 border rounded-md"
             defaultValue="select"
           >
-            <option value="select" disabled>Select Voice</option>
+            <option value="select" disabled>Select a voice type</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple files</label>
+          <label className="block mb-2">Upload Photos Up to 24 - MAX 45MB</label>
           <input 
             type="file" 
-            multiple 
             onChange={handlePhotoUpload} 
             className="w-full px-3 py-2 border rounded-md"
             accept="image/*"
           />
         </div>
 
+        <div className="mt-4">
+          <label className="block mb-2">Select Photos:</label>
+          <ul>
+            {photos.map((photo, index) => (
+              <li key={index}>{photo.name}</li>
+            ))}
+          </ul>
+        </div>
+
         {isUploading && (
           <div className="mt-4">
-            <label className="block mb-2">Uploading Photos - Please remain on this page until completed</label>
+            <label className="block mb-2">Please remain on this page until completed</label>
             <div className="w-full bg-gray-200 rounded-full h-4">
               <div
                 className="bg-blue-500 h-4 rounded-full"
@@ -201,3 +212,4 @@ export default function SlideshowOrder() {
     </div>
   );
 }
+
