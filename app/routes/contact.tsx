@@ -36,7 +36,7 @@ export default function Contact() {
       alert("Your message has been sent!");
       setFormData({ name: "", email: "", question: "" });
     } else {
-      alert("Yikes! The message hit a sour note. Please give it another go! 🎵🚫📩");
+      alert("There was an error sending your message. Please try again.");
     }
   };
 
@@ -56,50 +56,44 @@ export default function Contact() {
             <div className="lg:pb-18 relative px-12 pt-16 pb-8 sm:px-12 sm:pt-24 sm:pb-14 lg:px-16 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold sm:text-8xl lg:text-9xl font-montserrat tracking-normal sm:tracking-tighter">
                 <span className="text-orange-500 drop-shadow-md">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Contact<span className="text-7xl sm:text-9xl lg:text-10xl"></span>      
                 </span>
               </h1>
-              <form onSubmit={handleSubmit} className="mt-10 space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                    Name
-                  </label>
+              <form onSubmit={handleSubmit} className="mt-10 space-y-4">
+                <div className="relative">
                   <input
                     type="text"
                     name="name"
                     id="name"
+                    placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email
-                  </label>
+                <div className="relative">
                   <input
                     type="email"
                     name="email"
                     id="email"
+                    placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
-                <div>
-                  <label htmlFor="question" className="block text-sm font-medium text-gray-700">
-                    Question
-                  </label>
+                <div className="relative">
                   <textarea
                     name="question"
                     id="question"
+                    placeholder="Question"
                     value={formData.question}
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                    rows="4"
+                    rows={4}
                   ></textarea>
                 </div>
                 <div>

@@ -28,3 +28,12 @@
   [plugins.inputs]
     record = true
     group = "Testing Built Site"
+
+    [build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+

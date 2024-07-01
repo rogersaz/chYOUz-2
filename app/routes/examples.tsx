@@ -26,10 +26,21 @@ export default function Index() {
             <div className="lg:pb-18 relative px-12 pt-16 pb-8 sm:px-12 sm:pt-24 sm:pb-14 lg:px-16 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold sm:text-8xl lg:text-9xl font-montserrat tracking-normal sm:tracking-tighter">
                 <span className="text-orange-500 drop-shadow-md">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Example<span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Example
                 </span>
               </h1>
               <div className="mt-10 flex flex-col items-center">
+                <div className="relative w-full max-w-xl aspect-video">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/FSnLtNS7rhQ"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p>&nbsp;</p>
                 <div className="relative w-full max-w-xl aspect-video">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
@@ -95,7 +106,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Removed Remix logo */}
+              {/* Removed logo */}
             </div>
           </div>
         </div>
@@ -103,3 +114,4 @@ export default function Index() {
     </main>
   );
 }
+
