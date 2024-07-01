@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
   // Set up email data
   let mailOptions = {
     from: `"${name}" <${email}>`, // sender address
-    to: 'your-email@example.com', // list of receivers
+    to: 'amy@chyouz.com', // list of receivers
     subject: 'Contact Form Submission',
     text: message,
   };
