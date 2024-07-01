@@ -167,7 +167,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Select Photos:</label>
+          <label className="block mb-2">Selected Photos:</label>
           <ul>
             {photos.map((photo, index) => (
               <li key={index}>{photo.name}</li>
