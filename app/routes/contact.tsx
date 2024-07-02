@@ -34,9 +34,9 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form
+                <form name="contact v1" netlify
                     data-netlify="true"
-                    name="contact v1"
+                    
                     method="post"
                   >
                     <input type="hidden" name="form-name" value="contact v1" />
@@ -54,7 +54,7 @@ export default function Index() {
                     </div>
                     <div className="mt-4">
                       <label>
-                        Commits? Questions? Message? <br />
+                        Message? <br />
                         <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
                       </label>
                     </div>
