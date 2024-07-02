@@ -44,6 +44,7 @@ export default function Index() {
                     <div>
                       <label>
                         Name <br />
+                        <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
