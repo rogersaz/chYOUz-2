@@ -48,26 +48,26 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field" action="/contact">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
-                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                    </p>
-                    <div>
+                  
+                <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                  <div>
                       <label>
-                        Name
+                        Name 
                         <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label htmlFor="email">
                         Email
+
                         <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label>
-                        Message
+                        Message? 
+
                         <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
                       </label>
                     </div>
@@ -123,7 +123,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Removed logo */}
+              {/* Removed logoS AT THE BOTTOM */}
             </div>
           </div>
         </div>
