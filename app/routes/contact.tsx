@@ -32,22 +32,18 @@ export default function Index() {
               <p className="mx-auto -mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
                 Personalized songs for your moments and memories.
               </p>
-              {/* Contact form */}
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
                   <form
                     data-netlify="true"
                     name="contact v1"
                     method="post"
-                    onSubmit={handleSubmit}
-                    
                   >
                     <input type="hidden" name="form-name" value="contact v1" />
 
                     <div>
                       <label>
                         Name <br />
-                        <input type="text" name="full-name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
