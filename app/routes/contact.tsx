@@ -1,11 +1,25 @@
 import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
+import { json } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
   return [
     { title: "chYOUz Home Page - Personalized Songs for Your Slideshows" },
     { name: "description", content: "Personalized songs created by chYOUz for custom slideshows and special occasions." }
   ];
+};
+
+export const action = async ({ request }) => {
+  let formData = await request.formData();
+  let name = formData.get("name");
+  let email = formData.get("email");
+  let message = formData.get("comments");
+
+  // Handle form data (e.g., send email, save to database, etc.)
+  // For now, let's just log it to the console
+  console.log({ name, email, message });
+
+  return json({ success: true });
 };
 
 export default function Index() {
