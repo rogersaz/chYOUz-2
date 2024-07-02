@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useForm } from "react-hook-form";
+import { Link } from "@remix-run/react";
 import 'tailwindcss/tailwind.css';
 
 const supabaseUrl = 'https://xzlaojqvnvuvywshviso.supabase.co';
@@ -112,7 +113,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Enter up to 10 keywords or phrases separate by a comma for your custom song</label>
+          <label className="block mb-2">Enter up to 10 keywords or phrases separated by a comma for your custom song.</label>
           <input 
             type="text" 
             {...register("keywords", { required: true })} 
@@ -122,7 +123,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Song Genre - Multiple choice are fine. Hold down your shift key and select.</label>
+          <label className="block mb-2">Song Genre - Multiple choices are fine. Hold down your shift key and select.</label>
           <select 
             multiple 
             {...register("genre", { required: true })} 
@@ -201,23 +202,41 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-6 text-center space-y-4 sm:space-y-0 sm:flex sm:space-x-4">
+        <div className="mt-6 mx-auto max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
           <button 
             type="submit" 
-            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md border border-transparent bg-green-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-600 sm:px-8 font-montserrat"
             disabled={isUploading}
           >
             Submit Order
           </button>
-          <a 
-            href="https://main--reliable-tapioca-f669c0.netlify.app/" 
-            className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
+          <Link
+            to="/examples"
+            className="flex items-center justify-center rounded-md bg-green-500 px-4 py-3 font-medium text-white hover:bg-green-600 font-montserrat"
           >
-            Home
-          </a>
+            EXAMPLES
+          </Link>
+          <Link
+            to="/about"
+            className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600 font-montserrat"
+          >
+            ABOUT
+          </Link>
+          <Link
+            to="/pricing"
+            className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
+          >
+            PRICING
+          </Link>
+          <Link
+            to="/contact"
+            className="flex items-center justify-center rounded-md bg-orange-500 px-4 py-3 font-medium text-white hover:bg-orange-600 font-montserrat"
+          >
+            Contact
+          </Link>
           <a 
             href="https://buy.stripe.com/cN24k1aD61VF3dK288"
-            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
           >
             BUY NOW
           </a>
