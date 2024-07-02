@@ -1,4 +1,4 @@
-import { Link, MetaFunction } from "@remix-run/react";
+import { Link, MetaFunction, useActionData, Form } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 import { json } from '@remix-run/node';
 
@@ -24,6 +24,8 @@ export const action = async ({ request }) => {
 
 export default function Index() {
   const user = useOptionalUser();
+  const actionData = useActionData();
+
   return (
     <main className="relative min-h-screen bg-black sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
@@ -48,10 +50,9 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  
-                <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="contact" />
-                  <div>
+                  <Form method="post">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div>
                       <label>
                         Name 
                         <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
@@ -60,14 +61,12 @@ export default function Index() {
                     <div className="mt-4">
                       <label htmlFor="email">
                         Email
-
                         <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label>
-                        Message? 
-
+                        Message?
                         <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
                       </label>
                     </div>
@@ -76,10 +75,12 @@ export default function Index() {
                         Submit message
                       </button>
                     </div>
-                  </form>
+                  </Form>
+                  {actionData?.success && (
+                    <p className="mt-4 text-green-500">Message submitted successfully!</p>
+                  )}
                 </div>
               </div>
-              {/* End contact form */}
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
@@ -123,7 +124,6 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Removed logoS AT THE BOTTOM */}
             </div>
           </div>
         </div>
