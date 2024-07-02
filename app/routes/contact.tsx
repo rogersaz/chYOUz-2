@@ -33,7 +33,7 @@ async function sendEmail({ name, email, question }) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {
-    to: '', // Replace with your email
+    to: 'your-email@example.com', // Replace with your email
     from: 'no-reply@example.com', // Replace with your verified sender
     subject: 'New Contact Form Submission',
     text: `Name: ${name}\nEmail: ${email}\nQuestion: ${question}`,
