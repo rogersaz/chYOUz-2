@@ -48,12 +48,12 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form name="contact v1" netlify
+                  <form name="contactv1"
                     data-netlify="true"
                     action="/contact"
                     method="post"
                   >
-                    <input type="hidden" name="form-name" value="contact v1" />
+                    <input type="hidden" name="form-name" value="contactv1" />
 
                     <div>
                       <label>
@@ -128,7 +128,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Removed logo */}
+              {/* Removed logoS AT THE BOTTOM */}
             </div>
           </div>
         </div>
