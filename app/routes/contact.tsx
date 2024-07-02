@@ -34,28 +34,31 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                <form name="contact v1" netlify
+                  <form name="contact v1" netlify
                     data-netlify="true"
-                    
+                    action="/contact"
                     method="post"
                   >
                     <input type="hidden" name="form-name" value="contact v1" />
 
                     <div>
                       <label>
-                        Name <br />
+                        Name 
+
                         <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label htmlFor="email">
-                        Email<br />
+                        Email
+
                         <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label>
-                        Message? <br />
+                        Message? 
+
                         <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
                       </label>
                     </div>
@@ -119,4 +122,3 @@ export default function Index() {
     </main>
   );
 }
-
