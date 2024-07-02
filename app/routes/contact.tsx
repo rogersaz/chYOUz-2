@@ -36,9 +36,10 @@ export default function Index() {
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
                   <form
+                    data-netlify="true"
                     name="contact v1"
                     method="post"
-                    data-netlify="true"
+                    onSubmit={handleSubmit}
                     
                   >
                     <input type="hidden" name="form-name" value="contact v1" />
