@@ -202,7 +202,7 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-6 mx-auto max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
+        <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
           <button 
             type="submit" 
             className="flex items-center justify-center rounded-md border border-transparent bg-green-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-600 sm:px-8 font-montserrat"
