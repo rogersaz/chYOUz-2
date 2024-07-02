@@ -32,6 +32,43 @@ export default function Index() {
               <p className="mx-auto -mt-4 max-w-lg text-center text-xl text-white sm:max-w-3xl font-montserrat">
                 Personalized songs for your moments and memories.
               </p>
+              {/* Contact form */}
+              <div className="mt-10 flex justify-center">
+                <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                  <form
+                    name="contact v1"
+                    method="post"
+                    data-netlify="true"
+                    onSubmit={(e) => e.preventDefault()}
+                  >
+                    <input type="hidden" name="form-name" value="contact v1" />
+                    <div>
+                      <label>
+                        Name <br />
+                        <input type="text" name="full-name" required className="w-full p-2 border border-gray-300 rounded" />
+                      </label>
+                    </div>
+                    <div className="mt-4">
+                      <label htmlFor="email">
+                        Email<br />
+                        <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
+                      </label>
+                    </div>
+                    <div className="mt-4">
+                      <label>
+                        Commits? Questions? Message? <br />
+                        <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
+                      </label>
+                    </div>
+                    <div className="mt-4">
+                      <button type="submit" className="w-full bg-violet-700 text-white p-2 rounded">
+                        Submit message
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              {/* End contact form */}
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
@@ -75,43 +112,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Contact form */}
-              <div className="mt-10 flex justify-center">
-                <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form
-                    name="contact v1"
-                    method="post"
-                    data-netlify="true"
-                    onSubmit={(e) => e.preventDefault()}
-                  >
-                    <input type="hidden" name="form-name" value="contact v1" />
-                    <div>
-                      <label>
-                        Name <br />
-                        <input type="text" name="full-name" required className="w-full p-2 border border-gray-300 rounded" />
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <label htmlFor="email">
-                        Email<br />
-                        <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <label>
-                        Commits? Questions? Message? <br />
-                        <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <button type="submit" className="w-full bg-violet-700 text-white p-2 rounded">
-                        Submit message
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              {/* End contact form */}
+              {/* Removed logo */}
             </div>
           </div>
         </div>
