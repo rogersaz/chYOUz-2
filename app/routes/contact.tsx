@@ -39,7 +39,7 @@ export default function Index() {
                     name="contact v1" netlify
                     method="post"
                     data-netlify="true"
-                    data-netlify-honeypot="bot-fielf"
+                    
                   >
                     <input type="hidden" name="form-name" value="contact v1" />
 
