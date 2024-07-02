@@ -54,11 +54,9 @@ export default function Index() {
                     method="post"
                   >
                     <input type="hidden" name="form-name" value="contactv1" />
-
                     <div>
                       <label>
                         Name 
-
                         <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
