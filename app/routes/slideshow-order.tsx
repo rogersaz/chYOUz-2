@@ -210,6 +210,8 @@ export default function SlideshowOrder() {
           >
             Submit Order
           </button>
+        </div>
+        <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4">
           <Link
             to="/examples"
             className="flex items-center justify-center rounded-md bg-green-500 px-4 py-3 font-medium text-white hover:bg-green-600 font-montserrat"
@@ -245,3 +247,4 @@ export default function SlideshowOrder() {
     </div>
   );
 }
+
