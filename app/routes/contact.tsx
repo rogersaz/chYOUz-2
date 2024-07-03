@@ -26,6 +26,23 @@ export default function Index() {
   const user = useOptionalUser();
   const actionData = useActionData();
 
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Process formData here
+    console.log({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('comments')
+    });
+
+    // You can add any additional actions here, such as updating state or redirecting
+    form.submit(); // Continue with the default form submission
+  };
+
   return (
     <main className="relative min-h-screen bg-black sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
@@ -50,7 +67,13 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+                  <form
+                    name="contact"
+                    method="post"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                  >
                     <input type="hidden" name="form-name" value="contact" />
                     <p className="hidden">
                       <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
