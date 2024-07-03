@@ -1,12 +1,11 @@
-import { Link } from "@remix-run/react";
-import { MetaFunction } from "@remix-run/node"; // Correct import for MetaFunction
+import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => {
-  return {
-    title: "About chYOUz - Personalized Songs for Your Moments",
-    description: "Learn about chYOUz and how we create personalized songs for your moments and memories."
-  };
+  return [
+    { title: "About chYOUz - Personalized Songs for Your Moments" },
+    { name: "description", content: "Learn about chYOUz and how we create personalized songs for your moments and memories." }
+  ];
 };
 
 export default function Index() {
@@ -22,7 +21,7 @@ export default function Index() {
                 src="https://github.com/rogersaz/chYOUz-2/blob/main/public/chYOUz-Background-Pages.jpg?raw=true"
                 alt="chYOUz custom music for your custom slideshows"
               />
-              <div className="absolute inset-0 bg-purple-500 opacity-50 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-[color:rgba(139,92,246,0.5)] mix-blend-multiply" />
             </div>
             <div className="lg:pb-18 relative px-12 pt-12 pb-8 sm:px-12 sm:pt-24 sm:pb-14 lg:px-16 lg:pt-32">
               <h1 className="text-center text-6xl font-extrabold sm:text-8xl lg:text-9xl font-montserrat tracking-normal sm:tracking-tighter">
@@ -123,6 +122,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
+              {/* Removed Logo */}
             </div>
           </div>
         </div>
@@ -130,3 +130,4 @@ export default function Index() {
     </main>
   );
 }
+
