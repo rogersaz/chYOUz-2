@@ -1,6 +1,5 @@
 import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
-import { json } from '@remix-run/node';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,21 +8,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const action = async ({ request }) => {
-  let formData = await request.formData();
-  let name = formData.get("name");
-  let email = formData.get("email");
-  let message = formData.get("comments");
-
-  // Handle form data (e.g., send email, save to database, etc.)
-  console.log({ name, email, message });
-
-  return json({ success: true });
-};
-
 export default function Index() {
   const user = useOptionalUser();
-
   return (
     <main className="relative min-h-screen bg-black sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
@@ -48,63 +34,43 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form
-                    name="contact"
-                    method="post"
+                  <form name="contact-form" netlify
                     data-netlify="true"
-                    netlify-honeypot="bot-field"
+                    action="/contact"
+                    method="post"
                   >
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
-                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                    </p>
+                    <input type="hidden" name="form-name" value="contact-form" />
+
                     <div>
                       <label>
-                        Name
-                        <input
-                          id="name"
-                          type="text"
-                          name="name"
-                          required
-                          className="w-full p-2 border border-gray-300 rounded"
-                        />
+                        Name 
+
+                        <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label htmlFor="email">
                         Email
-                        <input
-                          id="email"
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full p-2 border border-gray-300 rounded"
-                        />
+
+                        <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label>
-                        Message?
-                        <textarea
-                          name="comments"
-                          className="w-full p-2 border border-gray-300 rounded"
-                        ></textarea>
+                        Message? 
+
+                        <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
                       </label>
                     </div>
                     <div className="mt-4">
-                      <button
-                        type="submit"
-                        className="w-full bg-violet-700 text-white p-2 rounded"
-                      >
+                      <button type="submit" className="w-full bg-violet-700 text-white p-2 rounded">
                         Submit message
                       </button>
                     </div>
                   </form>
-                  <p id="responseMessage" className="mt-4 text-green-500" hidden>
-                    Message submitted successfully!
-                  </p>
                 </div>
               </div>
+              {/* End contact form */}
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
@@ -148,6 +114,7 @@ export default function Index() {
                   </div>
                 )}
               </div>
+              {/* Removed logo */}
             </div>
           </div>
         </div>
