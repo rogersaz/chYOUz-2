@@ -1,7 +1,5 @@
 import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
-import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,20 +7,6 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Explore examples of personalized songs created by chYOUz for custom slideshows and special occasions." }
   ];
 };
-
-export function EmblaCarousel() {
-  const [emblaRef] = useEmblaCarousel();
-
-  return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
-      </div>
-    </div>
-  );
-}
 
 export default function Index() {
   const user = useOptionalUser();
@@ -79,9 +63,6 @@ export default function Index() {
                   ></iframe>
                 </div>
               </div>
-              <div className="mt-10">
-                <EmblaCarousel />
-              </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
                   <Link
@@ -91,7 +72,7 @@ export default function Index() {
                     View Notes for {user.email}
                   </Link>
                 ) : (
-                  <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-6 sm:gap-5">
+                  <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-5 sm:gap-5">
                     <Link
                       to="/slideshow-order"
                       className="flex items-center justify-center rounded-md border border-transparent bg-green-500 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-600 sm:px-8 font-montserrat"
@@ -122,12 +103,6 @@ export default function Index() {
                     >
                       Contact
                     </Link>
-                    <a
-                      href="https://buy.stripe.com/cN24k1aD61VF3dK288"
-                      className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
-                    >
-                      BUY NOW
-                    </a>
                   </div>
                 )}
               </div>
