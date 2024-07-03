@@ -1,5 +1,6 @@
 // app/components/ContactForm.jsx
 
+import { Form } from "@remix-run/react";
 import React from "react";
 
 export default function ContactForm() {
