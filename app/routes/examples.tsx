@@ -1,5 +1,7 @@
 import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
+import React from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,6 +9,20 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Explore examples of personalized songs created by chYOUz for custom slideshows and special occasions." }
   ];
 };
+
+export function EmblaCarousel() {
+  const [emblaRef] = useEmblaCarousel();
+
+  return (
+    <div className="embla" ref={emblaRef}>
+      <div className="embla__container">
+        <div className="embla__slide">Slide 1</div>
+        <div className="embla__slide">Slide 2</div>
+        <div className="embla__slide">Slide 3</div>
+      </div>
+    </div>
+  );
+}
 
 export default function Index() {
   const user = useOptionalUser();
@@ -62,6 +78,9 @@ export default function Index() {
                     allowFullScreen
                   ></iframe>
                 </div>
+              </div>
+              <div className="mt-10">
+                <EmblaCarousel />
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
