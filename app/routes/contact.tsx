@@ -1,4 +1,4 @@
-import { Link, MetaFunction, useActionData, Form } from "@remix-run/react";
+import { Link, MetaFunction, Form, useActionData } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 import { json } from '@remix-run/node';
 
@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-// The action function is not necessary for Netlify forms since Netlify handles the form submission
+// The action function logs the form data and returns a success response
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let name = formData.get("name");
@@ -17,7 +17,6 @@ export const action = async ({ request }) => {
   let message = formData.get("comments");
 
   // Handle form data (e.g., send email, save to database, etc.)
-  // For now, let's just log it to the console
   console.log({ name, email, message });
 
   return json({ success: true });
@@ -51,9 +50,8 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-  {/* You still need to add the hidden input with the form name to your JSX form */}
-  <input type="hidden" name="form-name" value="contact" />
+                  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact" />
                     <p className="hidden">
                       <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                     </p>
@@ -136,4 +134,3 @@ export default function Index() {
     </main>
   );
 }
-
