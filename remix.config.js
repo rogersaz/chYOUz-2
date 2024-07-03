@@ -1,6 +1,4 @@
-// remix.config.js
 import { config as netlifyConfig } from "@netlify/remix-adapter";
-import { esbuildConfig } from './esbuild.config.js';
 
 /** @type {import('@remix-run/dev').AppConfig} */
 const remixConfig = {
@@ -16,7 +14,6 @@ const remixConfig = {
     });
     return config;
   },
-  esbuild: esbuildConfig,
 };
 
 export default remixConfig;

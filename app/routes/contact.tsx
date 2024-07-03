@@ -1,6 +1,9 @@
+// app/routes/contact.jsx
+
 import { Link, MetaFunction, useActionData, Form } from "@remix-run/react";
 import { json } from '@remix-run/node';
 import { useOptionalUser } from "~/utils";
+import ContactForm from '~/components/ContactForm';
 
 export const meta: MetaFunction = () => {
   return [
@@ -49,35 +52,7 @@ export default function Contact() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <Form method="post" action="/contact" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
-                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                    </p>
-                    <div>
-                      <label>
-                        Name
-                        <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <label htmlFor="email">
-                        Email
-                        <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <label>
-                        Message?
-                        <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
-                      </label>
-                    </div>
-                    <div className="mt-4">
-                      <button type="submit" className="w-full bg-violet-700 text-white p-2 rounded">
-                        Submit message
-                      </button>
-                    </div>
-                  </Form>
+                  <ContactForm />
                   {actionData?.success && (
                     <p className="mt-4 text-green-500">Message submitted successfully!</p>
                   )}
