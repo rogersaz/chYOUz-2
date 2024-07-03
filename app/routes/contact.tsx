@@ -1,9 +1,8 @@
 // app/routes/contact.jsx
 
-import { Link, MetaFunction, useActionData, Form } from "@remix-run/react";
 import { json } from '@remix-run/node';
+import { MetaFunction, useActionData, Form } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
-import ContactForm from '~/components/ContactForm';
 
 export const meta: MetaFunction = () => {
   return [
@@ -52,7 +51,25 @@ export default function Contact() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <ContactForm />
+                  <Form method="post" action="/contact" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p className="hidden">
+                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                    </p>
+                    <div className="form-group">
+                      <label htmlFor="name">Name</label>
+                      <input id="name" type="text" name="name" required />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email">Email</label>
+                      <input id="email" type="email" name="email" required />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="comments">Message</label>
+                      <textarea id="comments" name="comments"></textarea>
+                    </div>
+                    <button type="submit" className="submit-button">Submit message</button>
+                  </Form>
                   {actionData?.success && (
                     <p className="mt-4 text-green-500">Message submitted successfully!</p>
                   )}
@@ -60,44 +77,44 @@ export default function Contact() {
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
-                  <Link
-                    to="/#"
+                  <a
+                    href="/#"
                     className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
                   >
                     View Notes for {user.email}
-                  </Link>
+                  </a>
                 ) : (
                   <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-6 sm:gap-5">
-                    <Link
-                      to="/slideshow-order"
+                    <a
+                      href="/slideshow-order"
                       className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
                     >
                       Order
-                    </Link>
-                    <Link
-                      to="/about"
+                    </a>
+                    <a
+                      href="/about"
                       className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600 font-montserrat"
                     >
                       ABOUT
-                    </Link>
-                    <Link
-                      to="/examples"
+                    </a>
+                    <a
+                      href="/examples"
                       className="flex items-center justify-center rounded-md bg-green-500 px-4 py-3 font-medium text-white hover:bg-green-600 font-montserrat"
                     >
                       EXAMPLES
-                    </Link>
-                    <Link
-                      to="/pricing"
+                    </a>
+                    <a
+                      href="/pricing"
                       className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
                     >
                       PRICING
-                    </Link>
-                    <Link
-                      to="/contact"
+                    </a>
+                    <a
+                      href="/contact"
                       className="flex items-center justify-center rounded-md bg-orange-500 px-4 py-3 font-medium text-white hover:bg-orange-600 font-montserrat"
                     >
                       Contact
-                    </Link>
+                    </a>
                     <a
                       href="https://buy.stripe.com/cN24k1aD61VF3dK288"
                       className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"

@@ -14,6 +14,11 @@ const remixConfig = {
     });
     return config;
   },
+  onLoadDefault: (route) => {
+    if (route.path.endsWith('.html')) {
+      return { headers: { 'Content-Type': 'text/html' } };
+    }
+  },
 };
 
 export default remixConfig;
