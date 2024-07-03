@@ -1,7 +1,4 @@
-// app/routes/contact.jsx
-
-import { json } from '@remix-run/node';
-import { MetaFunction, useActionData, Form } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => {
@@ -11,21 +8,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const action = async ({ request }) => {
-  let formData = await request.formData();
-  let name = formData.get("name");
-  let email = formData.get("email");
-  let message = formData.get("comments");
-
-  // Handle form data (e.g., send email, save to database, etc.)
-  console.log({ name, email, message });
-
-  return json({ success: true });
-};
-
 export default function Contact() {
   const user = useOptionalUser();
-  const actionData = useActionData();
 
   return (
     <main className="relative min-h-screen bg-black sm:flex sm:items-center sm:justify-center">
@@ -50,29 +34,10 @@ export default function Contact() {
                 Personalized songs for your moments and memories.
               </p>
               <div className="mt-10 flex justify-center">
-                <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <Form method="post" action="/contact" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p className="hidden">
-                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                    </p>
-                    <div className="form-group">
-                      <label htmlFor="name">Name</label>
-                      <input id="name" type="text" name="name" required />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="email">Email</label>
-                      <input id="email" type="email" name="email" required />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="comments">Message</label>
-                      <textarea id="comments" name="comments"></textarea>
-                    </div>
-                    <button type="submit" className="submit-button">Submit message</button>
-                  </Form>
-                  {actionData?.success && (
-                    <p className="mt-4 text-green-500">Message submitted successfully!</p>
-                  )}
+                <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+                  <h2 className="text-2xl font-semibold text-gray-800 mb-4">Questions or Help?</h2>
+                  <p className="text-lg text-gray-700">Contact us at:</p>
+                  <p className="text-xl font-bold text-gray-900 mt-2">amy@chyouz.com</p>
                 </div>
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
