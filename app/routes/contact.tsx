@@ -1,4 +1,4 @@
-import { Link, MetaFunction, Form, useActionData } from "@remix-run/react";
+import { Link, MetaFunction } from "@remix-run/react";
 import { useOptionalUser } from "~/utils";
 import { json } from '@remix-run/node';
 
@@ -9,7 +9,6 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-// The action function logs the form data and returns a success response
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let name = formData.get("name");
@@ -24,24 +23,6 @@ export const action = async ({ request }) => {
 
 export default function Index() {
   const user = useOptionalUser();
-  const actionData = useActionData();
-
-  // Handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-
-    // Process formData here
-    console.log({
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('comments')
-    });
-
-    // You can add any additional actions here, such as updating state or redirecting
-    form.submit(); // Continue with the default form submission
-  };
 
   return (
     <main className="relative min-h-screen bg-black sm:flex sm:items-center sm:justify-center">
@@ -72,7 +53,6 @@ export default function Index() {
                     method="post"
                     data-netlify="true"
                     netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
                   >
                     <input type="hidden" name="form-name" value="contact" />
                     <p className="hidden">
@@ -80,31 +60,49 @@ export default function Index() {
                     </p>
                     <div>
                       <label>
-                        Name 
-                        <input id="name" type="text" name="name" required className="w-full p-2 border border-gray-300 rounded" />
+                        Name
+                        <input
+                          id="name"
+                          type="text"
+                          name="name"
+                          required
+                          className="w-full p-2 border border-gray-300 rounded"
+                        />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label htmlFor="email">
                         Email
-                        <input id="email" type="email" name="email" required className="w-full p-2 border border-gray-300 rounded" />
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full p-2 border border-gray-300 rounded"
+                        />
                       </label>
                     </div>
                     <div className="mt-4">
                       <label>
                         Message?
-                        <textarea name="comments" className="w-full p-2 border border-gray-300 rounded"></textarea>
+                        <textarea
+                          name="comments"
+                          className="w-full p-2 border border-gray-300 rounded"
+                        ></textarea>
                       </label>
                     </div>
                     <div className="mt-4">
-                      <button type="submit" className="w-full bg-violet-700 text-white p-2 rounded">
+                      <button
+                        type="submit"
+                        className="w-full bg-violet-700 text-white p-2 rounded"
+                      >
                         Submit message
                       </button>
                     </div>
                   </form>
-                  {actionData?.success && (
-                    <p className="mt-4 text-green-500">Message submitted successfully!</p>
-                  )}
+                  <p id="responseMessage" className="mt-4 text-green-500" hidden>
+                    Message submitted successfully!
+                  </p>
                 </div>
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
