@@ -51,8 +51,9 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contact" />
+                <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+  {/* You still need to add the hidden input with the form name to your JSX form */}
+  <input type="hidden" name="form-name" value="contact" />
                     <p className="hidden">
                       <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                     </p>
