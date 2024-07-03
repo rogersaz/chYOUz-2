@@ -41,7 +41,7 @@ export default function Index() {
                     View Notes for {user.email}
                   </Link>
                 ) : (
-                  <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-5 sm:gap-5">
+                  <div className="space-y-4 sm:space-y-0 sm:inline-grid sm:grid-cols-6 sm:gap-5">
                     <Link
                       to="/slideshow-order"
                       className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-violet-700 shadow-sm hover:bg-violet-50 sm:px-8 font-montserrat"
@@ -72,6 +72,12 @@ export default function Index() {
                     >
                       Contact
                     </Link>
+                    <a
+                      href="https://buy.stripe.com/cN24k1aD61VF3dK288"
+                      className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
+                    >
+                      BUY NOW
+                    </a>
                   </div>
                 )}
               </div>
