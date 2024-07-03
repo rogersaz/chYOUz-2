@@ -9,6 +9,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+// The action function is not necessary for Netlify forms since Netlify handles the form submission
 export const action = async ({ request }) => {
   let formData = await request.formData();
   let name = formData.get("name");
@@ -50,10 +51,11 @@ export default function Index() {
               </p>
               <div className="mt-10 flex justify-center">
                 <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-                  <Form method="post">
-                  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-
+                  <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact" />
+                    <p className="hidden">
+                      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                    </p>
                     <div>
                       <label>
                         Name 
@@ -77,7 +79,7 @@ export default function Index() {
                         Submit message
                       </button>
                     </div>
-                  </Form>
+                  </form>
                   {actionData?.success && (
                     <p className="mt-4 text-green-500">Message submitted successfully!</p>
                   )}
@@ -133,3 +135,4 @@ export default function Index() {
     </main>
   );
 }
+
