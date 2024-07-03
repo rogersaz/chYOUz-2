@@ -1,9 +1,10 @@
 // remix.config.js
 import { config as netlifyConfig } from "@netlify/remix-adapter";
+import { esbuildConfig } from './esbuild.config.js';
 
 /** @type {import('@remix-run/dev').AppConfig} */
 const remixConfig = {
-  ...(process.env.NODE_ENV === "production" ? netlifyConfig : undefined),
+  ...(process.env.NODE_ENV === "production" ? netlifyConfig : {}),
   future: {
     v2_meta: true, // Enable future Remix features if needed
   },
@@ -15,9 +16,7 @@ const remixConfig = {
     });
     return config;
   },
+  esbuild: esbuildConfig,
 };
 
 export default remixConfig;
-
-
-
