@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react";
 import 'tailwindcss/tailwind.css';
 
 const supabaseUrl = 'https://xzlaojqvnvuvywshviso.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5MjI1MzAsImV4cCI6MjAzNDQ5ODUzMH0.qsk6kRv8uKts0K6-3da02Kpmsee50KAhlHiWAGsms5U';
+const supabaseKey = 'YOUR_SUPABASE_KEY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function SlideshowOrder() {
@@ -67,7 +67,16 @@ export default function SlideshowOrder() {
 
   const handlePhotoUpload = (event) => {
     const files = Array.from(event.target.files);
-    setPhotos(prevPhotos => [...prevPhotos, ...files]);
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/heic'];
+    
+    const validFiles = files.filter(file => allowedTypes.includes(file.type));
+    const invalidFiles = files.filter(file => !allowedTypes.includes(file.type));
+    
+    if (invalidFiles.length > 0) {
+      alert('Only .jpg, .png, .webp, and .heic files are allowed.');
+    }
+    
+    setPhotos(prevPhotos => [...prevPhotos, ...validFiles]);
   };
 
   const handlePhotoDelete = (index) => {
@@ -111,7 +120,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Keywords or Phrases for Song</label>
+          <label className="block mb-2">Enter up to 10 keywords or phrases separated by a comma for your custom song.</label>
           <input 
             type="text" 
             {...register("keywords", { required: true })} 
@@ -148,25 +157,17 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Singer's Voice</label>
-          <select 
-            {...register("voice", { required: true, validate: value => value !== "select" })} 
-            className="w-full px-3 py-2 border rounded-md"
-            defaultValue="select"
-          >
-            <option value="select" disabled>Select Voice</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </div>
-
-        <div className="mt-4">
-          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple jpg, png, webp, heic images only</label>
+          <label className="block mb-2 text-red-500">
+            Upload Multiple Photos - MAX 45MB
+          </label>
+          <label className="block mb-2 text-red-500">
+            Only supported file types are jpg, png, webp, heic images only
+          </label>
           <input 
             type="file" 
             onChange={handlePhotoUpload} 
             className="w-full px-3 py-2 border rounded-md"
-            accept="image/*"
+            accept=".jpg, .jpeg, .png, .webp, .heic"
           />
         </div>
 
@@ -246,3 +247,6 @@ export default function SlideshowOrder() {
     </div>
   );
 }
+
+
+
