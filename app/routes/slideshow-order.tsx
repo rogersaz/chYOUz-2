@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react";
 import 'tailwindcss/tailwind.css';
 
 const supabaseUrl = 'https://xzlaojqvnvuvywshviso.supabase.co';
-const supabaseKey = 'YOUR_SUPABASE_KEY';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSIsInNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODkyMjUzMCwiZXhwIjoyMDM0NDk4NTMwfQ.4a728R5ZXAx3S25lBN80WzKn476NQCOrHXnDKz_xeFM';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function SlideshowOrder() {
@@ -44,7 +44,7 @@ export default function SlideshowOrder() {
           name: data.name, 
           email: data.email, 
           keywords: data.keywords, 
-          genre: data.genre.join(','), // Convert array to comma-separated string
+          genre: data.genre, 
           voice: data.voice,
           photos: photoUrls
         }]);
@@ -247,3 +247,4 @@ export default function SlideshowOrder() {
     </div>
   );
 }
+
