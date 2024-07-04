@@ -237,7 +237,7 @@ export default function SlideshowOrder() {
             Contact
           </Link>
           <a 
-            href="https://buy.stripe.com/cN24k1aD61VF3dK288"
+            href="https://buy.stripe.com/test_7sI186aYz7Be5eEcMM"
             className="flex items-center justify-center rounded-md bg-red-500 px-4 py-3 font-medium text-white hover:bg-red-600 font-montserrat"
           >
             BUY NOW
