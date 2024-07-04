@@ -22,7 +22,7 @@ export default function Index() {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pricing <span className="text-7xl sm:text-9xl lg:text-10xl"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </h1>
-              <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }} className="p-6 rounded-lg shadow-lg text-gray-800">
                 <h2 className="text-2xl font-bold mb-4">chYOUz</h2>
                 <p className="text-xl mb-4">PERSONALIZED song/slideshow: up to 24 photos - 1 Personalized song</p>
                 <p className="text-3xl font-bold mb-6">$49.00</p>
