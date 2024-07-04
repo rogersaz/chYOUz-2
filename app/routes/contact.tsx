@@ -3,28 +3,10 @@ import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "chYOUz Home Page - Personalized Songs for Your Slideshows" },
-    { name: "description", content: "Personalized songs created by chYOUz for custom slideshows and special occasions." }
+    { title: "chYOUz Contact Page - Personalized Songs for Your Slideshows" },
+    { name: "description", content: "Contact Staff with questions about a Personalized songs created by chYOUz for custom slideshows and special occasions." }
   ];
 };
-
-import React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-
-export function EmblaCarousel() {
-  const [emblaRef] = useEmblaCarousel()
-
-  return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
-      </div>
-    </div>
-  )
-}
-
 
 export default function Contact() {
   const user = useOptionalUser();
@@ -52,7 +34,7 @@ export default function Contact() {
                 Personalized songs for your moments and memories.
               </p>
               <div className="mt-10 flex justify-center">
-                <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+                <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }} className="p-6 rounded-lg shadow-lg max-w-md w-full text-center">
                   <h2 className="text-2xl font-semibold text-gray-800 mb-4">Questions or Help?</h2>
                   <p className="text-lg text-gray-700">Contact us at:</p>
                   <p className="text-xl font-bold text-gray-900 mt-2">amy@chyouz.com</p>
@@ -107,6 +89,7 @@ export default function Contact() {
                   </div>
                 )}
               </div>
+              {/* Removed logo */}
             </div>
           </div>
         </div>
