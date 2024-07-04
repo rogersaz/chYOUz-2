@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useForm } from "react-hook-form";
+import { Link } from "@remix-run/react";
 import 'tailwindcss/tailwind.css';
 
 const supabaseUrl = 'https://xzlaojqvnvuvywshviso.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODkyMjUzMCwiZXhwIjoyMDM0NDk4NTMwfQ.4a728R5ZXAx3S25lBN80WzKn476NQCOrHXnDKz_xeFM';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6bGFvanF2bnZ1dnl3c2h2aXNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5MjI1MzAsImV4cCI6MjAzNDQ5ODUzMH0.qsk6kRv8uKts0K6-3da02Kpmsee50KAhlHiWAGsms5U';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function SlideshowOrder() {
@@ -57,7 +58,7 @@ export default function SlideshowOrder() {
       alert('Order submitted successfully');
     } catch (error) {
       console.error('Error submitting order:', error);
-      alert('Error submitting order');
+      alert(`Error submitting order: ${error.message}`);
     } finally {
       setIsUploading(false);
       setUploadProgress(0);
@@ -65,10 +66,8 @@ export default function SlideshowOrder() {
   };
 
   const handlePhotoUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setPhotos([...photos, file]);
-    }
+    const files = Array.from(event.target.files);
+    setPhotos(prevPhotos => [...prevPhotos, ...files]);
   };
 
   const handlePhotoDelete = (index) => {
@@ -122,7 +121,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Song Genre - Multiple choice are fine</label>
+          <label className="block mb-2">Song Genre - Multiple choices are fine. Hold down your shift key and select.</label>
           <select 
             multiple 
             {...register("genre", { required: true })} 
@@ -162,14 +161,31 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple files</label>
+          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple files one at a time</label>
           <input 
             type="file" 
-            multiple 
             onChange={handlePhotoUpload} 
             className="w-full px-3 py-2 border rounded-md"
             accept="image/*"
           />
+        </div>
+
+        <div className="mt-4">
+          <label className="block mb-2">Selected Photos:</label>
+          <ul>
+            {photos.map((photo, index) => (
+              <li key={index} className="flex justify-between items-center">
+                {photo.name}
+                <button 
+                  type="button" 
+                  onClick={() => handlePhotoDelete(index)} 
+                  className="text-red-500 hover:text-red-700"
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {isUploading && (
@@ -184,7 +200,7 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-6 text-center space-x-4">
+        <div className="mt-6 flex justify-center">
           <button 
             type="submit" 
             className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
@@ -192,17 +208,41 @@ export default function SlideshowOrder() {
           >
             Submit Order
           </button>
-          <a 
-            href="https://main--reliable-tapioca-f669c0.netlify.app/" 
-            className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
+        </div>
+
+        <div className="mt-6 flex justify-center space-x-4">
+          <Link
+            to="/examples"
+            className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors duration-300"
           >
-            Home
+            EXAMPLES
+          </Link>
+          <Link
+            to="/about"
+            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+          >
+            ABOUT
+          </Link>
+          <Link
+            to="/pricing"
+            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+          >
+            PRICING
+          </Link>
+          <Link
+            to="/contact"
+            className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors duration-300"
+          >
+            Contact
+          </Link>
+          <a 
+            href="https://buy.stripe.com/cN24k1aD61VF3dK288"
+            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+          >
+            BUY NOW
           </a>
         </div>
       </form>
     </div>
   );
 }
-
-
-
