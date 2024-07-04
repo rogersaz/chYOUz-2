@@ -161,7 +161,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple files one at a time</label>
+          <label className="block mb-2">Upload Photos - MAX 45MB - You can upload multiple jpg, png, webp, heic images only</label>
           <input 
             type="file" 
             onChange={handlePhotoUpload} 
