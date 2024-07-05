@@ -156,6 +156,21 @@ export default function SlideshowOrder() {
           </select>
         </div>
 
+
+        <div className="mt-4">
+          <label className="block mb-2">Singer's Voice</label>
+          <select 
+            {...register("voice", { required: true, validate: value => value !== "select" })} 
+            className="w-full px-3 py-2 border rounded-md"
+            defaultValue="select"
+          >
+            <option value="select" disabled>Select Voice Type</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+
         <div className="mt-4">
           <label className="block mb-2 text-red-500">
             Upload Multiple Photos - MAX 45MB
