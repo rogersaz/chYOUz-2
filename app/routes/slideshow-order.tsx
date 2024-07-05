@@ -221,20 +221,29 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-10 flex justify-between items-center">
-          <a 
-            href="https://chyouz.com"
-            className="bg-gray-500 text-white px-10 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
-          >
-            HOME
-          </a>
+        <div className="mt-6 flex justify-between items-center">
           <button 
             type="submit" 
-            className="bg-blue-500 text-white px-10 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
             disabled={isUploading}
           >
             Submit Order
           </button>
+          <a 
+            href="https://buy.stripe.com/cN24k1aD61VF3dK288"
+            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+          >
+            BUY NOW
+          </a>
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <a 
+            href="https://chyouz.com"
+            className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
+          >
+            HOME
+          </a>
         </div>
 
         <div className="mt-6 flex justify-center flex-wrap space-y-4 md:space-y-0 md:space-x-4">
@@ -262,18 +271,11 @@ export default function SlideshowOrder() {
           >
             CONTACT
           </Link>
-          <a 
-            href="https://buy.stripe.com/cN24k1aD61VF3dK288"
-            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
-          >
-            BUY
-          </a>
         </div>
       </form>
     </div>
   );
 }
-
 
 
 
