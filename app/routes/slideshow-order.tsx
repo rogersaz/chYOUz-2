@@ -221,17 +221,23 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-6 flex justify-center">
+        <div className="mt-10 flex justify-between items-center">
+          <a 
+            href="https://chyouz.com"
+            className="bg-gray-500 text-white px-10 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
+          >
+            HOME
+          </a>
           <button 
             type="submit" 
-            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="bg-blue-500 text-white px-10 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
             disabled={isUploading}
           >
             Submit Order
           </button>
         </div>
 
-        <div className="mt-6 flex justify-center space-x-4">
+        <div className="mt-6 flex justify-center flex-wrap space-y-4 md:space-y-0 md:space-x-4">
           <Link
             to="/examples"
             className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors duration-300"
@@ -254,19 +260,21 @@ export default function SlideshowOrder() {
             to="/contact"
             className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors duration-300"
           >
-            Contact
+            CONTACT
           </Link>
           <a 
             href="https://buy.stripe.com/cN24k1aD61VF3dK288"
             className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
           >
-            BUY NOW
+            BUY
           </a>
         </div>
       </form>
     </div>
   );
 }
+
+
 
 
 

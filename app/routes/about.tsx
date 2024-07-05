@@ -31,7 +31,7 @@ export default function Index() {
               </h1>
               <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }} className="p-6 rounded-lg shadow-lg text-gray-800">
                 <p className="mx-auto max-w-lg text-left text-xl text-black sm:max-w-3xl font-montserrat">
-                  Welcome to <b>chYOUze</b>, where we turn your cherished moments into unforgettable memories through the power of <b>PERSONALIZED</b> songs. Our mission is to create custom digital slideshows that blend your photos with songs <b>UNIQUELY</b> tailored to your story.
+                  Welcome to <b>chYOUz</b>, where we turn your cherished moments into unforgettable memories through the power of <b>PERSONALIZED</b> songs. Our mission is to create custom digital slideshows that blend your photos with songs <b>UNIQUELY</b> tailored to your story.
                 </p>
                 <h2 className="text-center text-4xl text-black mt-8 font-montserrat">Our Vision</h2>
                 <p className="mx-auto mt-4 max-w-lg text-left text-xl text-black sm:max-w-3xl font-montserrat">
