@@ -55,9 +55,9 @@ export default function SlideshowOrder() {
       }
 
       console.log('Supabase response:', supabaseData);
-      alert('Order submitted successfully');
+      alert('High five! Your order just moonwalked into our system. We will take it from here!');
     } catch (error) {
-      console.error('Error submitting order:', error);
+      console.error('Error: "Oops! It looks like your file has stage fright. Check its extension and give it another shot!', error);
       alert(`Error submitting order: ${error.message}`);
     } finally {
       setIsUploading(false);
