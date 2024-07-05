@@ -120,7 +120,12 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Enter up to 10 keywords or phrases separated by a comma for your custom song.</label>
+          <label className="block mb-2">Enter up to 10 keywords or phrases separated by a comma.</label>
+          
+          <label className="block mb-2 text-500">
+          Let the lyrical magic begin!
+          </label>
+
           <input 
             type="text" 
             {...register("keywords", { required: true })} 
@@ -130,7 +135,7 @@ export default function SlideshowOrder() {
         </div>
 
         <div className="mt-4">
-          <label className="block mb-2">Song Genre - Multiple choices are fine. Hold down your shift key and select.</label>
+          <label className="block mb-2">Song Genre - Create a musical mashup masterpiece! Select as many as you like</label>
           <select 
             multiple 
             {...register("genre", { required: true })} 
@@ -176,7 +181,7 @@ export default function SlideshowOrder() {
             Upload Multiple Photos - MAX 45MB
           </label>
           <label className="block mb-2 text-red-500">
-            Only supported file types are jpg, png, webp, heic images only
+          Sorry, only JPG, PNG, WEBP, and HEIC images can join the party!
           </label>
           <input 
             type="file" 
@@ -206,7 +211,7 @@ export default function SlideshowOrder() {
 
         {isUploading && (
           <div className="mt-4">
-            <label className="block mb-2">Uploading Photos - Please remain on this page until completed</label>
+            <label className="block mb-2">Uploading photos - Please don't hit the dance floor just yet, stay on this page until the magic happens!</label>
             <div className="w-full bg-gray-200 rounded-full h-4">
               <div
                 className="bg-blue-500 h-4 rounded-full"
