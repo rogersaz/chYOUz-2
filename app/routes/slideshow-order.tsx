@@ -67,7 +67,7 @@ export default function SlideshowOrder() {
 
   const handlePhotoUpload = (event) => {
     const files = Array.from(event.target.files);
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/heic'];
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image.heic'];
     
     const validFiles = files.filter(file => allowedTypes.includes(file.type));
     const invalidFiles = files.filter(file => !allowedTypes.includes(file.type));
@@ -221,53 +221,53 @@ export default function SlideshowOrder() {
           </div>
         )}
 
-        <div className="mt-6 flex justify-between items-center">
+        <div className="mt-6 flex justify-center">
           <button 
             type="submit" 
-            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="bg-green-500 text-white px-4 py-3 rounded-md hover:bg-green-600 transition-colors duration-300 font-montserrat"
             disabled={isUploading}
           >
             Submit Order
           </button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           <a 
             href="https://buy.stripe.com/cN24k1aD61VF3dK288"
-            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-yellow-500 px-4 py-3 font-medium text-white hover:bg-yellow-600 transition-colors duration-300 font-montserrat"
           >
             BUY NOW
           </a>
-        </div>
-
-        <div className="mt-6 flex justify-center">
           <a 
             href="https://chyouz.com"
-            className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-gray-500 px-4 py-3 font-medium text-white hover:bg-gray-600 transition-colors duration-300 font-montserrat"
           >
             HOME
           </a>
-        </div>
-
-        <div className="mt-6 flex justify-center flex-wrap space-y-4 md:space-y-0 md:space-x-4">
           <Link
             to="/examples"
-            className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-green-500 px-4 py-3 font-medium text-white hover:bg-green-600 transition-colors duration-300 font-montserrat"
           >
             EXAMPLES
           </Link>
+        </div>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           <Link
             to="/about"
-            className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600 transition-colors duration-300 font-montserrat"
           >
             ABOUT
           </Link>
           <Link
             to="/pricing"
-            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-purple-500 px-4 py-3 font-medium text-white hover:bg-purple-600 transition-colors duration-300 font-montserrat"
           >
             PRICING
           </Link>
           <Link
             to="/contact"
-            className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors duration-300"
+            className="flex items-center justify-center rounded-md bg-orange-500 px-4 py-3 font-medium text-white hover:bg-orange-600 transition-colors duration-300 font-montserrat"
           >
             CONTACT
           </Link>
@@ -276,6 +276,7 @@ export default function SlideshowOrder() {
     </div>
   );
 }
+
 
 
 
