@@ -62,6 +62,17 @@ export default function Index() {
                     allowFullScreen
                   ></iframe>
                 </div>
+                <p>&nbsp;</p>
+                <div className="relative w-full max-w-xl aspect-video">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/QygJ3s4YDr0"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
