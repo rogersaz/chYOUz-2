@@ -30,49 +30,36 @@ export default function Index() {
                 </span>
               </h1>
               <div className="mt-10 flex flex-col items-center">
-                <div className="relative w-full max-w-xl aspect-video">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/FSnLtNS7rhQ"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <p>&nbsp;</p>
-                <div className="relative w-full max-w-xl aspect-video">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/An_CFJ7x-JE"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <p>&nbsp;</p>
-                <div className="relative w-full max-w-xl aspect-video">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/J3X3gSRlpbY"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-                <p>&nbsp;</p>
-                <div className="relative w-full max-w-xl aspect-video">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/QygJ3s4YDr0"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+                {[
+                  "https://www.youtube.com/embed/FSnLtNS7rhQ",
+                  "https://www.youtube.com/embed/An_CFJ7x-JE",
+                  "https://www.youtube.com/embed/J3X3gSRlpbY",
+                  "https://www.youtube.com/embed/QygJ3s4YDr0"
+                ].map((link, index) => (
+                  <div key={index} className="max-w-sm rounded overflow-hidden shadow-lg mb-8">
+                    <div className="relative w-full aspect-video">
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full"
+                        src={link}
+                        title={`YouTube video player ${index + 1}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2">Example Video {index + 1}</div>
+                      <p className="text-gray-700 text-base">
+                        Personalized song created by chYOUz for custom slideshows.
+                      </p>
+                    </div>
+                    <div className="px-6 pt-4 pb-2">
+                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#customsong</span>
+                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#slideshow</span>
+                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#chYOUz</span>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center sm:space-x-4">
                 {user ? (
@@ -117,7 +104,6 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              {/* Removed logo */}
             </div>
           </div>
         </div>
