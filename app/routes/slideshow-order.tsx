@@ -9,7 +9,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function SlideshowOrder() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [photos, setPhotos] = useState<File[]>([]);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -56,6 +56,8 @@ export default function SlideshowOrder() {
 
       console.log('Supabase response:', supabaseData);
       alert('High five! Your order just moonwalked into our system. We will take it from here!');
+      reset(); // Reset the form fields
+      setPhotos([]); // Clear the photos
     } catch (error) {
       console.error('Error: "Oops! It looks like your file has stage fright. Check its extension and give it another shot!', error);
       alert(`Error submitting order: ${error.message}`);
