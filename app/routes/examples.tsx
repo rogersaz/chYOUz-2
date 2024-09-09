@@ -31,6 +31,7 @@ export default function Index() {
               </h1>
               <div className="mt-10 flex flex-col items-center">
                 {[
+                  "https://www.youtube.com/embed/ebPtIGbGpB4",
                   "https://www.youtube.com/embed/078Q4ew5_y0", // New example video link
                   "https://www.youtube.com/embed/FSnLtNS7rhQ",
                   "https://www.youtube.com/embed/An_CFJ7x-JE",
